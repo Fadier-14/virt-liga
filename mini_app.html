@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <style>
+        
+        p {
+  font-size: 20px;
+}
+  button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 16px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 12px;
+  }
+</style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Вирт Лига</h1>
+<p id="t"></p>
+
+<button type="button" id="btnClub">Клуб</button>
+<button type="button" id="btnSquad">Состав</button>
+
+
+<p id="screen">Нажми кнопку</p>
+    <p id="tactic"  style="display:none">Тактика:</p>
+
+<button type="button" id="btnTact1" style="display:none">Прессинг: Средний прессинг</button>
+<button type="button" id="btnTact2" style="display:none">Тактика: баланс</button>
+<button type="button" id="btnTact3" style="display:none">Линия обороны: средняя</button>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    const screen = document.getElementById("screen");
+const btnTact1 = document.getElementById("btnTact1");
+const btnTact2 = document.getElementById("btnTact2");
+const btnTact3 = document.getElementById("btnTact3");
+const PTact = document.getElementById("tactic");
+pres_sp = ["Слабый прессинг", "Средний прессинг", "Высокий прессинг"]
+bal_sp = ["Тактика: полная оборона", "Тактика: оборона", "Тактика: баланс", "Тактика: атака", "Тактика: отчаянная атака"]
+def_sp = ["Линия обороны: низкая", "Линия обороны: средняя", "Линия обороны: высокая"]
+x = 1
+y = 2
+z = 1
+btnTact1.textContent = pres_sp[x]
+btnTact2.textContent = bal_sp[y]
+btnTact3.textContent = def_sp[z]
+document.getElementById("btnClub").onclick = function () {
+  btnTact1.style.display = "none";
+  btnTact2.style.display = "none";
+  btnTact3.style.display = "none";
+  PTact.style.display = "none";
+  screen.innerHTML = "Клуб: тестовый<br>Банк: 100 млн";
+};
+
+document.getElementById("btnSquad").onclick = function () {
+  btnTact1.style.display = "block";
+  btnTact2.style.display = "block";
+  btnTact3.style.display = "block";
+  PTact.style.display = "block";
+  screen.innerHTML = "Состав: 11 игроков";
+};
+document.getElementById("btnTact1").onclick = function () {
+if (x !== 2) {
+  x += 1;
+} else {
+  x = 0;
+}
+btnTact1.textContent = pres_sp[x];
+}
+document.getElementById("btnTact2").onclick = function () {
+    if (y !== 4) {
+        y += 1;
+    } else {
+        y = 0
+    }
+    btnTact2.textContent = bal_sp[y]
+}
+document.getElementById("btnTact3").onclick = function () {
+    if (z !== 2) {
+        z += 1;
+    } else {
+        z = 0
+    }
+    btnTact3.textContent = def_sp[z]
+}
+
+  const tg = window.Telegram.WebApp;
+  tg.ready();
+
+  const u = tg.initDataUnsafe && tg.initDataUnsafe.user;
+  document.getElementById("t").textContent = u
+    ? "Привет, " + u.first_name
+    : "Открой из Telegram";
+
+</script>
+</body>
+</html>
