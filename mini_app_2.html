@@ -13,26 +13,8 @@
       color: #f3f6fb;
       font-family: Arial, sans-serif;
     }
-    .banner-top {
-      text-align: right;
-    }
-    .rule {
-      border: 1px solid #252b33;
-      border-radius: 12px;
-      background: #070b12;
-      color: #9aa4b2;
-      padding: 4px 8px;
-      margin: 4px 8px;
-    }
-    .set {
-      border: 1px solid #252b33;
-      border-radius: 12px;
-      background: #070b12;
-      color: #9aa4b2;
-      padding: 4px 8px;
-      margin: 4px 8px;
-    }
-    h1 {
+    
+    .logo h1 {
       font-size: 45px;
     }
     h2 {
@@ -56,7 +38,7 @@
       background-size: cover;
       background-position: center;
       text-align: center;
-      border: 1px solid #252b33;
+      border-bottom: 1px solid #252b33;
     }
     .banner {
       background:
@@ -69,20 +51,19 @@
       margin: 10px 20px;
       border: 1px solid #252b33;
       border-radius: 12px;
-      text-align: center;
+      display: flex;
+      align-items: center;
     }
+    .profile-right {
+      border-left: 1px solid #2a3344;
+      
+    }
+    
 
   </style>
 </head>
 <body>
-  <div class="banner-top">
-    <button class="rule">
-      ?<br>правила
-    </button>
-    <button class="set">
-      ⚙️<br>настройки
-    </button>
-  </div>
+  
   <header class="banner">
   <div class="logo">
     <svg width="40" height="36" viewBox="0 0 64 48" aria-hidden="true">
@@ -94,7 +75,12 @@
     <h2>футбольные лиги в телеграмм</h2>
   </header>
   <div class="profile">
-    <h1>Ваня  │   Нет активной сессии</h1>
+    <div class="profile-left">
+      Ваня
+    </div>
+    <div class="profile-right">
+      Нет активной сессии
+    </div>
   </div>
 </body>
 </html>
