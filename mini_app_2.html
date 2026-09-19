@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Вирт Лига</title>
@@ -39,7 +40,7 @@
       background-position: center;
       text-align: center;
       border-bottom: 1px solid #252b33;
-      margin-top: 20px;
+      margin-top: 50px;
     }
     .banner {
       background:
@@ -77,11 +78,34 @@
   </header>
   <div class="profile">
     <div class="profile-left">
-      Ваня
+      <img id="ava" alt="" width="48" height="48">
+      <span id="nick">Ваня</span>
     </div>
     <div class="profile-right">
       Нет активной сессии
     </div>
   </div>
+  <script>
+  const tg = window.Telegram && window.Telegram.WebApp;
+  if (tg) {
+    tg.ready();
+  }
+  const u = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
+  if (u) {
+  document.getElementById("nick").textContent = u.first_name;
+
+  if (u.photo_url) {
+    document.getElementById("ava").src = u.photo_url;
+  } else {
+    document.getElementById("ava").replaceWith(
+      Object.assign(document.createElement("div"), {
+        className: "ava-letter",
+        textContent: u.first_name.charAt(0)
+        })
+      );
+    }
+  }
+
+</script>
 </body>
 </html>
