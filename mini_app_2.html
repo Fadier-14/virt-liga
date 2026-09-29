@@ -89,7 +89,19 @@
   const tg = window.Telegram && window.Telegram.WebApp;
   if (tg) {
     tg.ready();
+
+  const API = "https://unroll-drivable-majorette.ngrok-free.dev"
+  async function sendPass() {
+    if (!tg || !tg.initData) return;
+    await fetch(API + "/auth", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ initData: tg.initData})
+    });
   }
+  sendPass();
+  }
+  
   const u = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
   if (u) {
   document.getElementById("nick").textContent = u.first_name;
