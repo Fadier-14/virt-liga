@@ -94,7 +94,7 @@
   const API = "https://unroll-drivable-majorette.ngrok-free.dev"
   async function sendPass() {
     if (!tg || !tg.initData) return;
-    await fetch(API + "/auth", {
+    const res = await fetch(API + "/auth", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({ initData: tg.initData})
@@ -105,7 +105,7 @@
   if (data.ok) {
     document.getElementById("coins").textContent = data.coins
   }
-  
+
   }
   
 
