@@ -80,6 +80,7 @@
     <div class="profile-left">
       <img id="ava" alt="" width="48" height="48">
       <span id="nick">Ваня</span>
+      <span id="coins"></span>
     </div>
     <div class="profile-right">
       Нет активной сессии
@@ -100,6 +101,11 @@
     });
   }
   sendPass();
+  }
+  const data = await res.JSON();
+
+  if (data.ok) {
+    document.getElementById("coins").textContent = data.coins
   }
   
   const u = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
