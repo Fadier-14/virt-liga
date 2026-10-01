@@ -100,13 +100,15 @@
       body: JSON.stringify({ initData: tg.initData})
     });
   }
-  sendPass();
-  }
   const data = await res.JSON();
 
   if (data.ok) {
     document.getElementById("coins").textContent = data.coins
   }
+  
+  sendPass();
+  }
+  
   
   const u = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
   if (u) {
