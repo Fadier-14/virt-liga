@@ -99,13 +99,16 @@
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({ initData: tg.initData})
     });
-  }
-  const data = await res.JSON();
+
+    const data = await res.json();
 
   if (data.ok) {
     document.getElementById("coins").textContent = data.coins
   }
   
+  }
+  
+
   sendPass();
   }
   
