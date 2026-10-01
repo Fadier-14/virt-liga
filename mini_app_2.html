@@ -60,7 +60,20 @@
       border-left: 1px solid #2a3344;
       padding-left: 12px;
     }
-    
+
+    .profile-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .who {
+      display: flex;
+      flex-direction: column;
+    }
+    .ava {
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
   </style>
 </head>
@@ -79,8 +92,11 @@
   <div class="profile">
     <div class="profile-left">
       <img id="ava" alt="" width="48" height="48">
+    <div class="who">
       <span id="nick">Ваня</span>
       <span id="coins"></span>
+    </div>
+      
     </div>
     <div class="profile-right">
       Нет активной сессии
