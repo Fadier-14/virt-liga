@@ -55,6 +55,7 @@
       border-radius: 12px;
       display: flex;
       align-items: center;
+      gap: 12px
     }
     .profile-right {
       border-left: 1px solid #2a3344;
@@ -65,19 +66,39 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      min-width: 0;
+  
     }
     .who {
       display: flex;
       flex-direction: column;
+      gap: 2px;
+      min-width: 0;
     }
     #ava {
       width: 48px;
       height: 48px;
       border-radius: 50%;
       object-fit: cover;
+      flex-shrink: 0;
     }
-    #PB {
-      font-size: 5px;
+    #id {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    #balance {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    #coins {
+      color: #e8c15a;
+      font-weight: 700;
+    } 
+    .balance-label {
+      font-size: 11px;
+      color: #8b97a8;
+      white-space: nowrap;
     }
 
   </style>
@@ -97,11 +118,14 @@
   <div class="profile">
     <div class="profile-left">
       <img id="ava" alt="" width="48" height="48">
-    <div class="who">
-      <span id="nick">Ваня</span>
-      <span id="coins"></span>
-    </div>
-    <span id="PB">Профильный баланс</span>
+      <div class="who">
+        <span id="nick">Ваня</span>
+        <span id="balance">
+          <span id="coins"></span>
+          <span class="balance-label">Профильный баланс</span>
+        </span>
+      </div>
+    
       
     </div>
     <div class="profile-right">
