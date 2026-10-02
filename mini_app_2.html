@@ -76,6 +76,9 @@
       border-radius: 50%;
       object-fit: cover;
     }
+    #PB {
+      font-size: 5px;
+    }
 
   </style>
 </head>
@@ -98,6 +101,7 @@
       <span id="nick">Ваня</span>
       <span id="coins"></span>
     </div>
+    <span id="PB">Профильный баланс</span>
       
     </div>
     <div class="profile-right">
@@ -122,7 +126,7 @@
     const data = await res.json();
 
   if (data.ok) {
-    document.getElementById("coins").textContent = data.coins
+    document.getElementById("coins").textContent = data.coins + "⚽"
   }
 
   }
