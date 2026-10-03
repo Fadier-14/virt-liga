@@ -251,10 +251,13 @@
   <div id="wait" class="wait-screen">
   <p>Ищем сессию</p>
   <p>В очереди: <span id="queue-count">0</span></p>
+  <p>Ждёте: <span id="wait-time">0</span> сек</p>
   <button type="button" id="cancel-btn">Отменить</button>
 </div>
   <script>
     let timer = null;
+    let seconds = 0;
+    let clock = null;
 
     document.getElementById("nick").textContent = "скрипт жив";
   const tg = window.Telegram && window.Telegram.WebApp;
@@ -323,11 +326,19 @@ const res2 = await fetch(API + "/queue1", {
     document.getElementById("queue-count").textContent = data3.count
   }
 }, 3000);
+  seconds = 0;
+  document.getElementById("wait-time").textContent = "0";
+  clearInterval(clock);
+  clock = setInterval(async function () {
+    seconds = seconds + 1;
+    document.getElementById("wait-time").textContent = seconds;
+  }, 1000);
   }
   
   }
   document.getElementById("cancel-btn").onclick = async function (params) {
     clearInterval(timer);
+    clearInterval(clock);
     document.getElementById("wait").style.display = "none";
     await fetch(API + "/queue0", {
     method: "POST",
