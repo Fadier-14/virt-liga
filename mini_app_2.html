@@ -327,13 +327,14 @@ const res2 = await fetch(API + "/queue1", {
   
   }
   document.getElementById("cancel-btn").onclick = async function (params) {
+    clearInterval(timer);
     document.getElementById("wait").style.display = "none";
     await fetch(API + "/queue0", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ initData: tg.initData })
   });
-  clearInterval(timer);
+  
 };
    
 </script>
