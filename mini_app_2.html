@@ -118,7 +118,7 @@
       text-align: center;
       border: 1px solid #252b33;
       border-radius: 12px;
-      padding: 60px 14px;
+      padding: 90px 14px;
       margin: 10px 10px;
       gap: 10px;
       background:
@@ -148,6 +148,13 @@
       height: 100%;
       object-fit: cover;
       
+    }
+    .find-btn {
+      background: #16a34a;
+      border: 1px solid #22c55e;
+      text-align: center;
+      margin: 10px 10px;
+      border-radius: 25%;
     }
   </style>
 </head>
@@ -185,6 +192,9 @@
     <span id="cbu">Нет активной сессии</span>
     <span id="cbd">Нажмите "найти сессию"<br>чтобы присоединиться к лиге<br>и сыграть с другими игроками.</span>
   </div>
+  <button type="button" class="find-btn">
+    <span id="fs1">🔍 НАЙТИ СЕССИЮ  ></span>
+  </button>
   <script>
     document.getElementById("nick").textContent = "скрипт жив";
   const tg = window.Telegram && window.Telegram.WebApp;
