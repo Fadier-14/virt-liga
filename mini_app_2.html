@@ -156,13 +156,37 @@
       
       text-align: center;
       margin: 12px 10px 0;
-      border-radius: 18px;
+      border-radius: 999px;
       box-sizing: border-box;
       padding: 16px 14px;
     }
-    #fbtn1 {
+    
+    .loupe {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+.loupe::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 2px;
+  background: #fff;
+  right: -5px;
+  bottom: -1px;
+  transform: rotate(45deg);
+}
+.chev {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+}
+#fbtn1 {
       color: white;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 16px;
     }
   </style>
@@ -201,9 +225,13 @@
     <span id="cbu">Нет активной сессии</span>
     <span id="cbd">Нажмите "найти сессию"<br>чтобы присоединиться к лиге<br>и сыграть с другими игроками.</span>
   </div>
-  <button type="button" class="find-btn">
-    <span id="fbtn1">🔍︎     НАЙТИ СЕССИЮ        ›</span>
-  </button>
+    <button type="button" class="find-btn">
+    
+      <span class="loupe"></span>
+      <span id="fbtn1">НАЙТИ СЕССИЮ</span>
+      <span class="chev">›</span>
+    </button>
+  
   <script>
     document.getElementById("nick").textContent = "скрипт жив";
   const tg = window.Telegram && window.Telegram.WebApp;
