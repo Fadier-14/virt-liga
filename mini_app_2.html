@@ -250,9 +250,12 @@
     </button>
   <div id="wait" class="wait-screen">
   <p>Ищем сессию</p>
+  <span id="queue-count"></span>
   <button type="button" id="cancel-btn">Отменить</button>
 </div>
   <script>
+    let timer = null;
+
     document.getElementById("nick").textContent = "скрипт жив";
   const tg = window.Telegram && window.Telegram.WebApp;
   if (tg) {
@@ -305,8 +308,23 @@ const res2 = await fetch(API + "/queue1", {
 
   const data2 = await res2.json();
   if (data2.ok) {
-    document.getElementById("wait").style.display = "flex"
+    document.getElementById("wait").style.display = "flex";
+    clearInterval(timer);
+    timer = setInterval(async function () {
+  const res3 = await fetch(API + "/queue_status", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ initData: tg.initData})
+
+     
+  })  
+  const data3 = await res3.json();
+  if (data3.ok) {
+    document.getElementById("queue-count").textContent = data3.count
   }
+}, 3000);
+  }
+  
   }
   document.getElementById("cancel-btn").onclick = async function (params) {
     document.getElementById("wait").style.display = "none";
@@ -315,8 +333,9 @@ const res2 = await fetch(API + "/queue1", {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ initData: tg.initData })
   });
+  clearInterval(timer);
 };
-  
+   
 </script>
 </body>
 </html>
