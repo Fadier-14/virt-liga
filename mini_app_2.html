@@ -53,8 +53,8 @@
     .profile {
       display: flex; 
   align-items: center;
-    padding: clamp(12px, 2.2vh, 20px) clamp(15px, 4.2vw, 25px);
-    margin: clamp(8px, 1.7vh, 16px) clamp(8px, 3.3vw, 20px);
+    padding: clamp(8px, 2vh, 20px) clamp(15px, 4.2vw, 25px);
+    margin: clamp(8px, 1.7vh, 16px) clamp(5px, 3vw, 20px);
     border: 1px solid #252b33;
     border-radius: 14px;
     font-size: clamp(15px, 4.2vw, 18px);
@@ -94,16 +94,16 @@
     #balance {
     display: flex;
     align-items: baseline;
-    gap: 4px;
+    gap: clamp(2px, 1.1vw, 6px);
     white-space: nowrap;
   }
     #coins {
     color: #e8c15a;
     font-weight: 700;
-    font-size: 14px;
+    font-size: clamp(10px, 3.3vw, 18px);
   }
     .balance-label {
-    font-size: 5px;
+    font-size: clamp(2px, 1.2vw, 8px);
     color: #8b97a8;
     white-space: nowrap;
   }
