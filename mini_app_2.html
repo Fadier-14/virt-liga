@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: clamp(8px, 2.5vw, 16px);
   }
 
   .banner {
@@ -136,9 +136,16 @@
     margin: 0 auto clamp(8px, 1.667vw, 18px);
   }
 
+  .icon1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   #cbu {
     font-size: clamp(15px, 4.2vw, 18px);
     font-weight: 700;
+    color: white;
   }
 
   #cbd {
@@ -155,10 +162,7 @@
     border-radius: 999px;
   }
 
-  .loupe {
-    width: 16px;
-    height: 16px;
-  }
+  
 
   .chev {
     color: #fff;
@@ -169,7 +173,6 @@
   #fbtn1 {
     color: white;
     font-weight: 700;
-    font-size: clamp(10px, 2vh, 30px);
   }
 
   .wait-screen {
