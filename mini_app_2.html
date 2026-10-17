@@ -118,30 +118,30 @@
     text-align: center;
     border: 1px solid #252b33;
     border-radius: 12px;
-    padding: 90px 14px;
-    margin: 10px 10px;
-    gap: 10px;
+    padding: clamp(60px, 5.6vh, 120px) clamp(10px, 1.95vw, 20px);
+    margin: clamp(8px, 1.7vh, 16px) clamp(5px, 3vw, 20px);
+    gap: clamp(8px, 1.5vw, 16px);
     background:
       linear-gradient(rgba(7, 11, 18, 0.55), rgba(7, 11, 18, 0.75)),
       url("stadion_3.jpg") center / cover;
   }
     #cbu {
       font-weight: 700;
-      font-size: 16px;
+      font-size: clamp(15px, 4.2vw, 18px);
       color: white;
     }
     #cbd {
-      font-size: 13px;
+      font-size: clamp(10px, 3.8vw, 18px);
       color: #8b97a8;
     }
     #icon1 {
-      width: 70px;
-      height: 70px;
+      width: clamp(50px, 10vw, 90px);
+      height: clamp(50px, 10vw, 90px);
       border-radius: 50%;
       overflow: hidden;
       border: 1px solid #3d4a5c;
       background: #000;
-      margin: 0 auto 12px;
+      margin: 0 auto clamp(8px, 1.667vw, 18px);
     }
     .icon1 img {
       width: 100%;
@@ -151,11 +151,11 @@
     }
     .find-btn {
       display: block;
-      width: calc(100% - 20px);
+      width: calc(100% - clamp(14px, 2.77vw, 28px));
       background: linear-gradient(#2fbf73, #14945f);
       
       text-align: center;
-      margin: 12px 10px 0;
+      margin: clamp(8px, 1.667vw, 18px) clamp(4px, 1.388vw, 18px) 0;
       border-radius: 999px;
       box-sizing: border-box;
       padding: 16px 14px;
