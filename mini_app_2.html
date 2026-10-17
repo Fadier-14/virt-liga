@@ -158,39 +158,23 @@
       margin: clamp(8px, 1.667vw, 18px) clamp(4px, 1.388vw, 18px) 0;
       border-radius: 999px;
       box-sizing: border-box;
-      padding: 16px 14px;
+      padding: clamp(12px, 1vh, 22px) 14px;
     }
     
-    .loupe {
-  width: 16px;
-  height: 16px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  position: relative;
-  flex-shrink: 0;
-}
-.loupe::after {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 2px;
-  background: #fff;
-  right: -5px;
-  bottom: -1px;
-  transform: rotate(45deg);
-}
+    
+
 .chev {
   color: #fff;
-  font-size: 22px;
+  font-size: calmp(18px, 3.5vw, 32px);
   line-height: 1;
 }
 #fbtn1 {
       color: white;
       font-weight: 500;
-      font-size: 16px;
+      font-size: clamp(10px, 1vh, 22px);
     }
     .wait-screen {
-  font-size: 20px;
+  font-size: clamp(14px, 2.78vw, 28px);
   font-weight: 600;
   display: none;
   position: fixed;
@@ -205,8 +189,8 @@
 }
 #cancel-btn {
   width: calc(100% - 20px);
-  margin-bottom: 24px;
-  padding: 10px;
+  margin-bottom: clamp(16px, 1.49vh, 32px);
+  padding: calmp(4px, 1.39vw, 16px);
 }
   </style>
 </head>
@@ -246,7 +230,7 @@
   </div>
     <button type="button" id="find-btn" class="find-btn">
     
-      <span class="loupe"></span>
+      
       <span id="fbtn1">НАЙТИ СЕССИЮ</span>
       <span class="chev">›</span>
     </button>
