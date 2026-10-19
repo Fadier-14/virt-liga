@@ -214,7 +214,7 @@
   display: flex;
     gap: clamp(8px, 2.5vw, 16px);
     min-width: 0;
-    font-size: clamp(9px, 3.2vw, 15px);
+    font-size: clamp(9px, 4vw, 20px);
     color: #9aa6b8;
 }
   </style>
@@ -261,7 +261,7 @@
     </button>
 
   <div class="inf">
-    <span id="left-inf">игроков онлайл:<br>0</span>
+    <span id="left-inf">игроков онлайл: 0</span>
     <span id="right-inf">сейчас в очереди:<br>0</span>
   </div>
   <div id="wait" class="wait-screen">
@@ -306,7 +306,7 @@
     })
     const data4 = await res4.json();
     if (data4.ok) {
-      document.getElementById("left-inf").textContent = "игроков онлайн:<br>${data4.count2}"
+      document.getElementById("left-inf").textContent = "игроков онлайн:" + data4.count2
     }
   }, 15000)
 
