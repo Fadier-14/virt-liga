@@ -234,6 +234,11 @@
       <span id="fbtn1">НАЙТИ СЕССИЮ</span>
       <span class="chev">›</span>
     </button>
+
+  <div class="inf">
+    <span id="left-inf">игроков онлайл:<br>0</span>
+    <span id="right-inf">сейчас в очереди:<br>0</span>
+  </div>
   <div id="wait" class="wait-screen">
   <p>Ищем сессию</p>
   <p>В очереди: <span id="queue-count">0</span></p>
@@ -244,6 +249,7 @@
     let timer = null;
     let seconds = 0;
     let clock = null;
+    let online_timer = null
 
     document.getElementById("nick").textContent = "скрипт жив";
   const tg = window.Telegram && window.Telegram.WebApp;
@@ -266,7 +272,17 @@
   }
 
   }
-  
+  online_timer = setInterval(async function () {
+    const res4 = await fetch(API + "/online_status", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ initData: tg.initData})
+    })
+    const data4 = await res4.json();
+    if (data4.ok) {
+      document.getElementById("left-inf").textContent = data4.count2
+    }
+  }, 15000)
 
   sendPass();
   }
@@ -309,7 +325,8 @@ const res2 = await fetch(API + "/queue1", {
   })  
   const data3 = await res3.json();
   if (data3.ok) {
-    document.getElementById("queue-count").textContent = data3.count
+    document.getElementById("queue-count").textContent = data3.count;
+    document.getElementById("right-inf").textContent = data3.count
   }
 }, 3000);
   seconds = 0;
