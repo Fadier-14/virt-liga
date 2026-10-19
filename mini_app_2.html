@@ -214,6 +214,8 @@
   display: flex;
     gap: clamp(8px, 2.5vw, 16px);
     min-width: 0;
+    font-size: clamp(9px, 3.2vw, 15px);
+    color: #9aa6b8;
 }
   </style>
 </head>
@@ -295,6 +297,7 @@
   }
 
   }
+  clearInterval(online_timer);
   online_timer = setInterval(async function () {
     const res4 = await fetch(API + "/online_status", {
       method: "POST",
@@ -303,7 +306,7 @@
     })
     const data4 = await res4.json();
     if (data4.ok) {
-      document.getElementById("left-inf").textContent = data4.count2
+      document.getElementById("left-inf").textContent = "игроков онлайл:"<br>data4.count2
     }
   }, 15000)
 
