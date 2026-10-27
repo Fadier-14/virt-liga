@@ -17,6 +17,7 @@
     background: #070b12;
     color: #f3f6fb;
     font-family: Arial, sans-serif;
+
   }
     
     .logo h1 {
@@ -250,10 +251,22 @@
   outline: none;     
   background: none;   
 }
+.display_lobby {
+  display: flex;
+}
+.display_history {
+  display: block;
+}
+.display_rule {
+  display: block;
+}
+.display_prof {
+  display: block;
+}
   </style>
 </head>
 <body>
-  
+  <div class="display_lobby" id="display_lobby1">
   <header class="banner">
   <div class="logo">
     <svg width="40" height="36" viewBox="0 0 64 48" aria-hidden="true">
@@ -303,12 +316,23 @@
   <p>Ждёте: <span id="wait-time">0</span> сек</p>
   <button type="button" id="cancel-btn">Отменить</button>
 </div>
+</div>
+<div class="display_history" id="display_history1">
+  <p>История игр<br>пусто...</p>
+</div>
+<div class="display_rule" id="display_rule1">
+  <p>играй, не мешай другим</p>
+</div>
+<div class="display_prof" id="display_prof1">
+  <p>Тут всё о тебе</p>
+</div>
 <div class="floor">
   <button class="active-btn-floor" id="lobby">🏠︎<br>лобби</button>
   <button class="btn-floor" id="history">📖<br>история</button>
   <button class="btn-floor" id="rule">📄<br>правила</button>
   <button class="btn-floor" id="prof">👤<br>профиль</button>
 </div>
+
   <script>
     let timer = null;
     let seconds = 0;
@@ -425,6 +449,31 @@ floorContainer.addEventListener('click', function(event){
     oldActive.classList.replace('active-btn-floor', 'btn-floor');
   }
   btn_click.classList.replace('btn-floor', 'active-btn-floor');
+  btn_id = btn_click.id;
+  if (btn_id == "lobby") {
+    document.getElementById("display_lobby1").style.display = "flex";
+    document.getElementById("display_history1").style.display = "none";
+    document.getElementById("display_rule1").style.display = "none";
+    document.getElementById("display_prof1").style.display = "none";
+  }
+  else if (btn_id == "history") {
+  document.getElementById("display_lobby1").style.display = "none";   
+  document.getElementById("display_history1").style.display = "flex";
+  document.getElementById("display_rule1").style.display = "none";    
+  document.getElementById("display_prof1").style.display = "none";    
+}
+  else if (btn_id == "rule") {
+    document.getElementById("display_lobby1").style.display = "none";  
+    document.getElementById("display_history1").style.display = "none";
+    document.getElementById("display_rule1").style.display = "flex";   
+    document.getElementById("display_prof1").style.display = "none";   
+}
+else if (btn_id == "prof") {
+    document.getElementById("display_lobby1").style.display = "none";  
+    document.getElementById("display_history1").style.display = "none";
+    document.getElementById("display_rule1").style.display = "none";   
+    document.getElementById("display_prof1").style.display = "flex";   
+}
 })
    
 </script>
