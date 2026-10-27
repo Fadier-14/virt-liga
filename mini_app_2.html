@@ -216,6 +216,25 @@
     min-width: 0;
     font-size: clamp(9px, 4vw, 20px);
 }
+.floor {
+  position: fixed;
+  bottom: 0;
+  padding: clamp(8px, 2vh, 20px) clamp(15px, 4.2vw, 25px);
+  gap: clamp(8px, 1.5vw, 16px); 
+  display: flex;
+  border-top: 1px solid #3d4a5c;
+  background: #102033;
+}
+
+.active-btn-floor {
+  flex: 1;
+  text-align: center;
+  font-size: clamp(9px, 3.2vw, 15px);
+  color: #1d7543;
+}
+.btn-floor {
+  color: darkgray;
+}
   </style>
 </head>
 <body>
@@ -268,6 +287,12 @@
   <p>В очереди: <span id="queue-count">0</span></p>
   <p>Ждёте: <span id="wait-time">0</span> сек</p>
   <button type="button" id="cancel-btn">Отменить</button>
+</div>
+<div class="floor">
+  <button class="active-btn-floor" id="lobby">🏠︎<br>лобби</button>
+  <button class="btn-floor" id="history">📖<br>история</button>
+  <button class="btn-floor" id="rule">📄<br>правила</button>
+  <button class="btn-floor" id="prof">👤<br>профиль</button>
 </div>
   <script>
     let timer = null;
@@ -376,6 +401,16 @@ const res2 = await fetch(API + "/queue1", {
   });
   
 };
+const floorContainer = document.querySelector(".floor");
+floorContainer.addEventListener('click', function(event){
+  const btn_click = event.target.closest('button');
+  if (!btn_click) return; 
+  const oldActive = block.querySelector('.active-btn-floor');
+  if (oldActive) {
+    oldActive.classList.replace('active-btn-floor', 'btn-floor');
+  }
+  btn_click.classList.replace('btn-floor', 'active-btn-floor');
+})
    
 </script>
 </body>
