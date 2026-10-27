@@ -219,6 +219,9 @@
 .floor {
   position: fixed;
   bottom: 0;
+  left: 0;                          
+  right: 0;                        
+  width: 100%;   
   padding: clamp(8px, 2vh, 20px) clamp(15px, 4.2vw, 25px);
   gap: clamp(8px, 1.5vw, 16px); 
   display: flex;
@@ -231,9 +234,22 @@
   text-align: center;
   font-size: clamp(9px, 3.2vw, 15px);
   color: #1d7543;
+  
+  border: none;      
+  outline: none;      
+  background: none;  
 }
+
+
 .btn-floor {
+  flex: 1;            
+  text-align: center; 
+  font-size: clamp(9px, 3.2vw, 15px); 
   color: darkgray;
+  
+  border: none;       
+  outline: none;     
+  background: none;   
 }
   </style>
 </head>
@@ -405,7 +421,7 @@ const floorContainer = document.querySelector(".floor");
 floorContainer.addEventListener('click', function(event){
   const btn_click = event.target.closest('button');
   if (!btn_click) return; 
-  const oldActive = block.querySelector('.active-btn-floor');
+  const oldActive = floorContainer.querySelector('.active-btn-floor');
   if (oldActive) {
     oldActive.classList.replace('active-btn-floor', 'btn-floor');
   }
