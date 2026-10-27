@@ -252,16 +252,16 @@
   background: none;   
 }
 .display_lobby {
-  display: flex;
+  visibility: visible;
 }
 .display_history {
-  display: none;
+  visibility: hidden;
 }
 .display_rule {
-  display: none;
+  visibility: hidden;
 }
 .display_prof {
-  display: none;
+  visibility: hidden;
 }
   </style>
 </head>
@@ -451,28 +451,28 @@ floorContainer.addEventListener('click', function(event){
   btn_click.classList.replace('btn-floor', 'active-btn-floor');
   btn_id = btn_click.id;
   if (btn_id == "lobby") {
-    document.getElementById("display_lobby1").style.display = "flex";
-    document.getElementById("display_history1").style.display = "none";
-    document.getElementById("display_rule1").style.display = "none";
-    document.getElementById("display_prof1").style.display = "none";
+    document.getElementById("display_lobby1").style.visibility = "visible";
+    document.getElementById("display_history1").style.visibility = "hidden";
+    document.getElementById("display_rule1").style.visibility = "hidden";
+    document.getElementById("display_prof1").style.visibility = "hidden";
   }
   else if (btn_id == "history") {
-  document.getElementById("display_lobby1").style.display = "none";   
-  document.getElementById("display_history1").style.display = "flex";
-  document.getElementById("display_rule1").style.display = "none";    
-  document.getElementById("display_prof1").style.display = "none";    
+  document.getElementById("display_lobby1").style.visibility = "hidden";   
+  document.getElementById("display_history1").style.visibility = "visible";
+  document.getElementById("display_rule1").style.visibility = "hidden";    
+  document.getElementById("display_prof1").style.visibility = "hidden";    
 }
   else if (btn_id == "rule") {
-    document.getElementById("display_lobby1").style.display = "none";  
-    document.getElementById("display_history1").style.display = "none";
-    document.getElementById("display_rule1").style.display = "flex";   
-    document.getElementById("display_prof1").style.display = "none";   
+    document.getElementById("display_lobby1").style.visibility = "hidden";  
+    document.getElementById("display_history1").style.visibility = "hidden";
+    document.getElementById("display_rule1").style.visibility = "visible";   
+    document.getElementById("display_prof1").style.visibility = "hidden";   
 }
 else if (btn_id == "prof") {
-    document.getElementById("display_lobby1").style.display = "none";  
-    document.getElementById("display_history1").style.display = "none";
-    document.getElementById("display_rule1").style.display = "none";   
-    document.getElementById("display_prof1").style.display = "flex";   
+    document.getElementById("display_lobby1").style.visibility = "hidden";  
+    document.getElementById("display_history1").style.visibility = "hidden";
+    document.getElementById("display_rule1").style.visibility = "hidden";   
+    document.getElementById("display_prof1").style.visibility = "visible";   
 }
 })
    
