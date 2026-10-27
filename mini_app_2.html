@@ -309,6 +309,22 @@
     }
   }, 15000)
 
+  clearInterval(timer);
+    timer = setInterval(async function () {
+  const res3 = await fetch(API + "/queue_status", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ initData: tg.initData})
+
+     
+  })  
+  const data3 = await res3.json();
+  if (data3.ok) {
+    document.getElementById("queue-count").textContent = data3.count;
+    document.getElementById("right-inf").textContent = "Сейчас в очереди:" + data3.count
+  }
+}, 3000);
+
   sendPass();
   }
   
@@ -339,21 +355,7 @@ const res2 = await fetch(API + "/queue1", {
   const data2 = await res2.json();
   if (data2.ok) {
     document.getElementById("wait").style.display = "flex";
-    clearInterval(timer);
-    timer = setInterval(async function () {
-  const res3 = await fetch(API + "/queue_status", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ initData: tg.initData})
-
-     
-  })  
-  const data3 = await res3.json();
-  if (data3.ok) {
-    document.getElementById("queue-count").textContent = data3.count;
-    document.getElementById("right-inf").textContent = data3.count
-  }
-}, 3000);
+    
   seconds = 0;
   document.getElementById("wait-time").textContent = "0";
   clearInterval(clock);
@@ -365,7 +367,6 @@ const res2 = await fetch(API + "/queue1", {
   
   }
   document.getElementById("cancel-btn").onclick = async function (params) {
-    clearInterval(timer);
     clearInterval(clock);
     document.getElementById("wait").style.display = "none";
     await fetch(API + "/queue0", {
